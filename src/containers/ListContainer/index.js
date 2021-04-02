@@ -95,7 +95,7 @@ function ListContainer(props){
     }
     // list the lists 
     let listItems = data[id-1].list.map((list,key) => { 
-        return(<div className="rounded bg-gray-200 flex-shrink-0 p-2 max-w-4xl w-1/4" key={key}>
+        return(<div className="rounded bg-gray-200 flex-shrink-0 p-2 max-w-4xl lg:w-1/4 w-5/6" key={key}>
         <div className="flex-none py-1">
         <button className="float-right" onClick={() => removeList(list.id)}>{removeIcon}</button>
         <h3 className="text-sm font-bold">{list.name}</h3> 
@@ -105,9 +105,9 @@ function ListContainer(props){
     });
 
     return(<Fragment>
-    <div className="container mx-auto">
+    <div className="container mx-auto px-3 lg:px-0">
         <h2 className="my-4 text-white text-2xl font-bold">{data[id-1].name}</h2>
-        <div className="flex space-x-4 pb-8 items-start space-between overflow-scroll w-screen">
+        <div className="flex space-x-4 pb-8 items-start space-between overflow-scroll h-screen w-screen">
         <DragDropContext onDragEnd={handleDragEnd}>
         {listItems}
         <AddList addList={addList} setListName={setListName} listName={listName}/>

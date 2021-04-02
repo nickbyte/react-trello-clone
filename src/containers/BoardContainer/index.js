@@ -39,14 +39,14 @@ function BoardContainer(){
         // saving to localstorage
         localStorage.setItem('zuddl_data',JSON.stringify(data));
     },[data]);
-    let boardForm = <div className="rounded bg-gray-200 flex-shrink-0 p-2 max-w-2xl bg-opacity-25 mt-2"><form onSubmit={addBoard}><input type="text" placeholder="Name of Board" className="p-2 w-full rounded" onChange={e => setName(e.target.value)} /> <button className="mt-2 bg-green-500 p-2 rounded text-white text-sm">Add</button> <button type="button" onClick={() => hideForm()} className="mt-2 bg-green-500 p-2 rounded text-white text-sm">Clear</button></form></div>
+    let boardForm = <div className="rounded bg-gray-200 flex-shrink-0 p-2 max-w-2xl bg-opacity-25 mt-2 ml-2"><form onSubmit={addBoard}><input type="text" placeholder="Name of Board" className="p-2 w-full rounded" onChange={e => setName(e.target.value)} /> <button className="mt-2 bg-green-500 p-2 rounded text-white text-sm">Add</button> <button type="button" onClick={() => hideForm()} className="mt-2 bg-green-500 p-2 rounded text-white text-sm">Clear</button></form></div>
     let boardItems  = data.map(board => <BoardItem key={board.id} board={board} removeBoard={removeBoard}/>);
     let emptyBoard = <div className="container mx-auto"><p className="my-4 text-white text-md font-bold">No boards Available, add a board</p><div>{toggle ? boardForm : <button className="bg-white shadow-md bg-opacity-50 hover:bg-opacity-100  p-6 rounded mt-2 border-b border-grey cursor-pointer hover:bg-grey-lighter w-60 text-center" onClick={() => setToggle(1)} >+ ADD A BOARD</button> }</div></div>;
     return (<div className="container mx-auto">
         <h2 className="my-4 text-white text-2xl font-bold">Boards</h2>
         <div className="flex-row flex flex-wrap">
         {data.length > 0 ? boardItems : emptyBoard}
-        {data.length > 0 ? <div>{toggle ? boardForm : <button className="bg-white shadow-md bg-opacity-50 hover:bg-opacity-100  p-6 rounded mt-2 border-b border-grey cursor-pointer hover:bg-grey-lighter w-60 text-center" onClick={() => setToggle(1)} >+ ADD A BOARD</button> }</div> : null}
+        {data.length > 0 ? <div>{toggle ? boardForm : <button className="bg-white shadow-md bg-opacity-50 hover:bg-opacity-100  p-6 rounded mt-2 border-b border-grey cursor-pointer hover:bg-grey-lighter lg:w-60 ml-2 text-center" onClick={() => setToggle(1)} >+ ADD A BOARD</button> }</div> : null}
         </div>
         </div>);
 }
