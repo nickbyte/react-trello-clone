@@ -27,7 +27,7 @@ function BoardContainer(){
     // remove board
     const removeBoard = (id) => {
         let dataItem = Array.from(data);
-        let filtered = dataItem.filter(d => d.id != id);
+        let filtered = dataItem.filter(d => d.id !== id);
         setData(filtered);
     }
     // toggle form
